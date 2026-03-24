@@ -18,7 +18,7 @@ export default function HomeHeroSection() {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 selection:bg-orange-500/30">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-8 bg-slate-950 selection:bg-orange-500/30">
 
             {/* --- PRO BACKGROUND LAYER --- */}
             <div className="absolute inset-0 z-0">

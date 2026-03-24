@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import { Sun } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export default function Services() {
     const [services, setServices] = useState([]);
@@ -25,6 +26,34 @@ export default function Services() {
 
     return (
         <div className="min-h-screen bg-slate-50 pt-24 pb-16">
+            <Helmet>
+                <title>Solar Services | VR Solar Tech</title>
+                <meta
+                    name="description"
+                    content="Explore VR Solar Tech services: rooftop solar (on-grid, off-grid, hybrid), solar street lights, solar CCTV cameras, and solar water pumps."
+                />
+                <meta
+                    name="keywords"
+                    content="solar services, rooftop solar, on-grid solar, off-grid solar, hybrid solar, solar street light, solar CCTV camera, solar water pump"
+                />
+                <link rel="canonical" href="https://vrsolarstech.in/services" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Solar Services | VR Solar Tech" />
+                <meta
+                    property="og:description"
+                    content="End-to-end solar services for homes and businesses with professional installation and support."
+                />
+                <meta property="og:url" content="https://vrsolarstech.in/services" />
+                <meta property="og:site_name" content="VR Solar Tech" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Solar Services | VR Solar Tech" />
+                <meta
+                    name="twitter:description"
+                    content="Explore rooftop solar, solar street lights, solar CCTV cameras, and solar water pump solutions."
+                />
+            </Helmet>
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <div className="text-center mb-14">
                     <span className="inline-block bg-orange-100 text-orange-600 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest mb-4">

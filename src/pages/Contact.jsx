@@ -24,8 +24,8 @@ const contactPoints = [
     {
         icon: Mail,
         label: "Email Us",
-        value: "info@vrsolarstech.in",
-        href: "mailto:info@vrsolarstech.in"
+        value: "vrsolartech18@gmail.com",
+        href: "mailto:vrsolartech18@gmail.com"
     },
 ];
 

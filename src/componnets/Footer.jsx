@@ -51,9 +51,9 @@ export default function Footer() {
                                 <Phone size={18} className="text-orange-500" />
                                 <span className="font-semibold">+91 79778 76208</span>
                             </a>
-                            <a href="mailto:info@vrsolarstech.in" className="flex items-center gap-3 hover:text-orange-400 transition-colors group">
+                            <a href="mailto:vrsolartech18@gmail.com" className="flex items-center gap-3 hover:text-orange-400 transition-colors group">
                                 <Mail size={18} className="text-orange-500" />
-                                <span className="font-semibold">info@vrsolarstech.in</span>
+                                <span className="font-semibold">vrsolartech18@gmail.com</span>
                             </a>
                         </div>
 
