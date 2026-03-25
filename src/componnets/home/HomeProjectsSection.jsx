@@ -62,8 +62,8 @@ export default function HomeProjectsSection() {
                     ">
                         {loading ? (
                             Array(3).fill(0).map((_, i) => (
-                                <div key={i} className="flex-shrink-0 w-[85%] sm:w-full bg-slate-50 rounded-[2.5rem] overflow-hidden animate-pulse">
-                                    <div className="h-56 bg-slate-200" />
+                                <div key={i} className="flex-shrink-0 w-[82vw] max-w-[320px] sm:w-full bg-slate-50 rounded-[2.5rem] overflow-hidden animate-pulse">
+                                    <div className="aspect-[4/3] sm:h-56 sm:aspect-auto bg-slate-200" />
                                     <div className="p-8">
                                         <div className="w-2/3 h-6 bg-slate-200 rounded-lg mb-3" />
                                         <div className="w-full h-4 bg-slate-200 rounded-lg mb-6" />
@@ -80,7 +80,7 @@ export default function HomeProjectsSection() {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                     className="
-                                        flex-shrink-0 w-[85%] snap-center
+                                        flex-shrink-0 w-[82vw] max-w-[320px] snap-center
                                         sm:w-full sm:snap-align-none
                                         bg-white rounded-[2.5rem] border border-slate-100 
                                         shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-orange-500/10 
@@ -88,13 +88,13 @@ export default function HomeProjectsSection() {
                                     "
                                 >
                                     {/* Image Section */}
-                                    <div className="h-56 relative overflow-hidden">
+                                    <div className="aspect-[4/3] sm:h-56 sm:aspect-auto relative overflow-hidden">
                                         {p.image ? (
                                             <>
                                                 <img
                                                     src={p.image}
                                                     alt={p.title}
-                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                    className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                                             </>

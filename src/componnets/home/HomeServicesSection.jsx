@@ -63,7 +63,7 @@ export default function HomeServicesSection() {
                         {loading ? (
                             Array(3).fill(0).map((_, i) => (
                                 <div key={i} className="flex-shrink-0 w-[85%] sm:w-full bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm animate-pulse">
-                                    <div className="w-full h-48 bg-slate-100 rounded-3xl mb-6" />
+                                    <div className="w-full aspect-[4/3] sm:h-48 sm:aspect-auto bg-slate-100 rounded-3xl mb-6" />
                                     <div className="w-2/3 h-6 bg-slate-100 rounded-lg mb-3" />
                                     <div className="w-full h-4 bg-slate-100 rounded-lg mb-2" />
                                     <div className="w-5/6 h-4 bg-slate-100 rounded-lg" />
@@ -78,7 +78,7 @@ export default function HomeServicesSection() {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                     className="
-                                        flex-shrink-0 w-[85%] snap-center
+                                        flex-shrink-0 w-[82vw] max-w-[320px] snap-center
                                         sm:w-full sm:snap-align-none
                                         bg-white rounded-[2.5rem] p-8 border border-slate-100 
                                         shadow-sm hover:shadow-2xl hover:shadow-orange-500/10 
@@ -94,12 +94,12 @@ export default function HomeServicesSection() {
 
                                     {/* Visual/Icon */}
                                     {s.image ? (
-                                        <div className="w-full h-48 rounded-[1.5rem] mb-7 overflow-hidden relative shadow-inner">
+                                        <div className="w-full aspect-[4/3] sm:h-48 sm:aspect-auto rounded-[1.5rem] mb-7 overflow-hidden relative shadow-inner">
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
                                             <img
                                                 src={s.image}
                                                 alt={s.title}
-                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                                             />
                                         </div>
                                     ) : (

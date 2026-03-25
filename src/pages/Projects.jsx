@@ -76,7 +76,7 @@ export default function Projects() {
                             /* --- PRO SKELETONS --- */
                             Array(6).fill(0).map((_, i) => (
                                 <div key={i} className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 animate-pulse">
-                                    <div className="h-64 bg-slate-100" />
+                                    <div className="aspect-[4/3] sm:h-64 sm:aspect-auto bg-slate-100" />
                                     <div className="p-8 space-y-4">
                                         <div className="w-2/3 h-6 bg-slate-100 rounded-lg" />
                                         <div className="w-full h-4 bg-slate-100 rounded-lg" />
@@ -110,10 +110,10 @@ export default function Projects() {
                                     className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500 group"
                                 >
                                     {/* Image Section */}
-                                    <div className="h-64 relative overflow-hidden">
+                                    <div className="aspect-[4/3] sm:h-64 sm:aspect-auto relative overflow-hidden">
                                         {p.image ? (
                                             <>
-                                                <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700" />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
                                             </>
                                         ) : (

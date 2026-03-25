@@ -230,14 +230,17 @@ export default function HomeSubsidiesSection() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="mt-20 bg-slate-900 rounded-[3rem] p-10 text-center relative overflow-hidden"
+                    className="mt-20 bg-slate-900 rounded-[2.5rem] p-8 sm:rounded-[3rem] sm:p-10 text-center relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px]" />
-                    <h4 className="text-white text-xl font-black mb-4 relative z-10">Confused about the documentation?</h4>
-                    <p className="text-slate-400 mb-8 max-w-xl mx-auto relative z-10 font-medium">
+                    <h4 className="text-white text-xl sm:text-2xl font-black mb-4 relative z-10">Confused about the documentation?</h4>
+                    <p className="text-slate-400 mb-8 max-w-xl mx-auto relative z-10 font-medium leading-relaxed">
                         Our experts handle the entire application process for you — from registration to final disbursement.
                     </p>
-                    <Link to="/contact" className="bg-orange-500 text-white font-black px-10 py-4 rounded-2xl hover:bg-orange-600 transition-all shadow-xl shadow-orange-900/20 active:scale-95 relative z-10">
+                    <Link
+                        to="/contact"
+                        className="relative z-10 inline-flex w-full max-w-[260px] items-center justify-center rounded-2xl bg-orange-500 px-6 py-4 text-center text-sm sm:w-auto sm:max-w-none sm:px-10 sm:text-base font-black text-white shadow-xl shadow-orange-900/20 transition-all hover:bg-orange-600 active:scale-95"
+                    >
                         Talk to a Subsidy Expert
                     </Link>
                 </motion.div>

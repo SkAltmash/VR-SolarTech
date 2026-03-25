@@ -72,7 +72,7 @@ export default function Services() {
                         /* Skeleton Loaders */
                         Array(6).fill(0).map((_, i) => (
                             <div key={i} className="bg-white rounded-3xl p-7 border border-slate-100 shadow-sm animate-pulse">
-                                <div className="w-full h-40 bg-slate-200 rounded-2xl mb-5" />
+                                <div className="w-full aspect-[4/3] sm:h-40 sm:aspect-auto bg-slate-200 rounded-2xl mb-5" />
                                 <div className="w-24 h-6 bg-slate-200 rounded-full mb-3" />
                                 <div className="w-3/4 h-6 bg-slate-200 rounded mb-2" />
                                 <div className="w-full h-4 bg-slate-200 rounded mb-1" />
@@ -92,8 +92,8 @@ export default function Services() {
 
                                 {/* Image / Fallback */}
                                 {s.image ? (
-                                    <div className="w-full h-40 sm:h-48 rounded-2xl mb-5 overflow-hidden shadow-md flex-shrink-0">
-                                        <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    <div className="w-full aspect-[4/3] sm:h-48 sm:aspect-auto rounded-2xl mb-5 overflow-hidden shadow-md flex-shrink-0">
+                                        <img src={s.image} alt={s.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                                     </div>
                                 ) : (
                                     <div className={`w-14 h-14 bg-gradient-to-br ${s.gradient || "from-orange-400 to-amber-400"} rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform flex-shrink-0`}>
