@@ -19,18 +19,19 @@ export default function Footer() {
         { label: "Services", to: "/services" },
         { label: "Projects", to: "/projects" },
         { label: "Blogs", to: "/blogs" },
+        { label: "Testimonials", to: "/testimonials" },
         { label: "Contact", to: "/contact" },
     ];
 
     return (
-        <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 font-sans pb-20">
+        <footer className="bg-slate-900 text-slate-300 pt-10 font-sans pb-25">
             <div className="max-w-7xl mx-auto px-6">
 
                 <div className="grid lg:grid-cols-12 gap-12 mb-16">
 
                     {/* --- BRAND SECTION --- */}
                     <div className="lg:col-span-4 space-y-6">
-                        <img src="/logo.png" alt="VR Solar Tech Logo" className="h-16 w-auto object-contain" />
+                        <img src="/logo.png" alt="VR Solar Tech Logo" className="h-16 w-auto object-contain bg-orange-100 rounded-2xl" />
                         <p className="text-slate-400 leading-relaxed font-medium">
                             Leading the transition to sustainable energy with high-efficiency solar solutions for residential, commercial, and industrial sectors.
                         </p>

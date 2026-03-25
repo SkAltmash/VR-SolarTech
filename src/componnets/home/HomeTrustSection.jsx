@@ -56,7 +56,7 @@ export default function HomeTrustSection() {
                     <div className="h-1 w-12 bg-orange-500 mx-auto rounded-full" />
                 </div>
 
-                <div className="-mx-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:overflow-visible sm:px-0">
+                <div className="-mx-6 overflow-x-auto px-6 py-5 pb-2 sm:mx-0 sm:overflow-visible sm:px-0">
                     <div className="flex gap-6 min-w-max snap-x snap-mandatory sm:min-w-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 md:gap-10">
                         {trustItems.map(({ value, suffix, label, icon: Icon, color }, index) => (
                             <motion.div

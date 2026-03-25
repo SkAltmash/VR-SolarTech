@@ -9,13 +9,17 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 import BlogDetail from "./pages/BlogDetail";
+import NotFound from "./pages/NotFound";
+import Testimonials from "./pages/Testimonials";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminServices from "./pages/admin/AdminServices";
 import AdminProjects from "./pages/admin/AdminProjects";
 import AdminMessages from "./pages/admin/AdminMessages";
 import AdminROI from "./pages/admin/AdminROI";
 import AdminBlogs from "./pages/admin/AdminBlogs";
+import AdminTestimonials from "./pages/admin/AdminTestimonials";
 import Footer from "./componnets/Footer";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./componnets/ScrollToTop";
@@ -31,6 +35,8 @@ function PublicLayout() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ROIFloatingButton />
       <Footer />
@@ -60,11 +66,13 @@ function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<AdminServices />} />
+          <Route index element={<AdminDashboard />} />
+          <Route path="services" element={<AdminServices />} />
           <Route path="projects" element={<AdminProjects />} />
           <Route path="messages" element={<AdminMessages />} />
           <Route path="roi" element={<AdminROI />} />
           <Route path="blogs" element={<AdminBlogs />} />
+          <Route path="testimonials" element={<AdminTestimonials />} />
         </Route>
 
         {/* Public Routes */}

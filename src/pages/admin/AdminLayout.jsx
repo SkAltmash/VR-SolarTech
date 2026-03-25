@@ -1,16 +1,20 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import { Sun, Settings, FolderKanban, MessageSquare, Calculator, LogOut, Menu, X, Newspaper } from "lucide-react";
+import { Sun, Settings, FolderKanban, MessageSquare, Calculator, LogOut, Menu, X, Newspaper, LayoutDashboard, Star } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 const navItems = [
-    { to: "/admin", label: "Services", icon: Settings, end: true },
+    { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
+    { to: "/admin/services", label: "Services", icon: Settings },
     { to: "/admin/projects", label: "Projects", icon: FolderKanban },
-    { to: "/admin/messages", label: "Messages", icon: MessageSquare },
-    { to: "/admin/roi", label: "ROI Data", icon: Calculator },
     { to: "/admin/blogs", label: "Blogs", icon: Newspaper },
+    { to: "/admin/testimonials", label: "Testimonials", icon: Star },
+    { to: "/admin/roi", label: "ROI Data", icon: Calculator },
+    { to: "/admin/messages", label: "Messages", icon: MessageSquare },
+
+
 ];
 
 export default function AdminLayout() {
