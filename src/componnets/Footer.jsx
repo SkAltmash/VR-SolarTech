@@ -1,6 +1,7 @@
 import {
     Phone, Mail, MapPin, ArrowUpRight, ShieldCheck, Zap
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { InstagramIcon, FacebookIcon, YouTubeIcon } from "./SocialIcons";
 
 export default function Footer() {
@@ -10,6 +11,14 @@ export default function Footer() {
         { icon: InstagramIcon, href: "https://www.instagram.com/vrsolartech?igsh=ZTExcnFnNmRmcDl6", label: "Instagram" },
         { icon: FacebookIcon, href: "https://www.facebook.com/share/1N8DkaJn99/", label: "Facebook" },
         { icon: YouTubeIcon, href: "https://youtube.com/@vrsolartech?si=e09ybd1KulboMa8Q", label: "YouTube" },
+    ];
+
+    const quickLinks = [
+        { label: "Home", to: "/" },
+        { label: "About", to: "/about" },
+        { label: "Services", to: "/services" },
+        { label: "Projects", to: "/projects" },
+        { label: "Contact", to: "/contact" },
     ];
 
     return (
@@ -39,9 +48,26 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* --- QUICK LINKS --- */}
+                    <div className="lg:col-span-2 space-y-6">
+                        <h4 className="text-white font-bold uppercase tracking-widest text-xs">Quick Links</h4>
+                        <div className="grid grid-cols-2 gap-3 sm:grid-cols-1">
+                            {quickLinks.map((link) => (
+                                <Link
+                                    key={link.to}
+                                    to={link.to}
+                                    className="text-sm font-semibold text-slate-400 hover:text-orange-400 transition-colors"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
                     {/* --- CONTACT INFO --- */}
-                    <div className="lg:col-span-3 space-y-6">
-                        <h4 className="text-white font-bold uppercase tracking-widest text-xs">Quick Contact</h4>
+                    <div className="lg:col-span-2 space-y-6">
+                        <Link to={'/admin'}>
+                            <h4 className="text-white font-bold uppercase tracking-widest text-xs pb-5">Quick Contact</h4></Link>
                         <div className="space-y-4">
                             <a href="tel:+919545966868" className="flex items-center gap-3 hover:text-orange-400 transition-colors group">
                                 <Phone size={18} className="text-orange-500" />
@@ -68,7 +94,7 @@ export default function Footer() {
                     </div>
 
                     {/* --- MAP SECTION --- */}
-                    <div className="lg:col-span-5">
+                    <div className="lg:col-span-4">
                         <div className="rounded-3xl overflow-hidden border-4 border-slate-800 shadow-2xl h-64 relative group">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.2149169586755!2d73.3636901!3d18.9661136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7fbef381bf997%3A0xc28a23feb4757986!2sVR%20Solartech!5e0!3m2!1sen!2sin!4v1774362780323!5m2!1sen!2sin"
