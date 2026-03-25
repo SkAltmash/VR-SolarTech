@@ -3,6 +3,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { motion, AnimatePresence } from "framer-motion";
 import { db } from "../firebase";
 import { Sun, MapPin, Zap, Leaf, Filter, LayoutGrid, CheckCircle2 } from "lucide-react";
+import SEO from "../componnets/SEO";
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);
@@ -35,6 +36,11 @@ export default function Projects() {
 
     return (
         <div className="min-h-screen bg-[#f8fafc] pt-32 pb-24 font-sans selection:bg-orange-100">
+            <SEO
+                title="Our Projects"
+                description="Explore our portfolio of successful solar installations across residential, commercial, and industrial sectors."
+                keywords="solar projects, solar installations, solar portfolio, commercial solar projects"
+            />
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* --- HEADER --- */}

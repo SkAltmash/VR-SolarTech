@@ -7,12 +7,15 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
+import BlogDetail from "./pages/BlogDetail";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminServices from "./pages/admin/AdminServices";
 import AdminProjects from "./pages/admin/AdminProjects";
 import AdminMessages from "./pages/admin/AdminMessages";
 import AdminROI from "./pages/admin/AdminROI";
+import AdminBlogs from "./pages/admin/AdminBlogs";
 import Footer from "./componnets/Footer";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./componnets/ScrollToTop";
@@ -25,6 +28,8 @@ function PublicLayout() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <ROIFloatingButton />
@@ -59,6 +64,7 @@ function App() {
           <Route path="projects" element={<AdminProjects />} />
           <Route path="messages" element={<AdminMessages />} />
           <Route path="roi" element={<AdminROI />} />
+          <Route path="blogs" element={<AdminBlogs />} />
         </Route>
 
         {/* Public Routes */}

@@ -217,9 +217,9 @@ export default function HomeSubsidiesSection() {
 
                                 {/* Footer Link */}
                                 <div className="mt-auto">
-                                    <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-orange-600 transition-colors">
+                                    <Link className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-orange-600 transition-colors">
                                         Check Eligibility <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                                    </button>
+                                    </Link>
                                 </div>
                             </motion.div>
                         );

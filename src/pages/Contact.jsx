@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { InstagramIcon, FacebookIcon, YouTubeIcon } from "../componnets/SocialIcons";
+import SEO from "../componnets/SEO";
 
 const contactPoints = [
     {
@@ -87,6 +88,11 @@ export default function Contact() {
 
     return (
         <div className="min-h-screen bg-[#f8fafc] pt-28 pb-20 font-sans">
+            <SEO
+                title="Contact Us"
+                description="Get in touch with VR SolarTech for a free consultation on solar installations, subsidies, and maintenance."
+                keywords="contact VR SolarTech, solar consultation, solar quote, solar installation service"
+            />
             <div className="max-w-6xl mx-auto px-5">
 
                 {/* --- HEADER --- */}

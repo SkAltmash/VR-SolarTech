@@ -1,5 +1,6 @@
 import { Sun, Users, Award, MapPin, CheckCircle2, Zap, ShieldCheck, Headphones } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "../componnets/SEO";
 
 const whyChooseUs = [
     { icon: Zap, title: "90% Savings", desc: "Reduce your monthly electricity bills by up to 90% with our high-efficiency systems." },
@@ -11,6 +12,11 @@ const whyChooseUs = [
 export default function About() {
     return (
         <div className="min-h-screen bg-[#fcfcfd] pt-28 pb-20 font-sans text-slate-700">
+            <SEO
+                title="About Us"
+                description="VR SolarTech is a premier solar EPC company in Maharashtra. We provide complete end-to-end solar solutions with 25-year warranties."
+                keywords="about VR SolarTech, solar company Maharashtra, solar team, solar subsidy"
+            />
             <div className="max-w-6xl mx-auto px-5">
 
                 {/* --- SEO HERO SECTION --- */}
