@@ -1,6 +1,7 @@
 import SEO from "../componnets/SEO";
 import HomeHeroSection from "../componnets/home/HomeHeroSection";
 import HomeTrustSection from "../componnets/home/HomeTrustSection";
+import HomeLogosSection from "../componnets/home/HomeLogosSection";
 import HomeServicesSection from "../componnets/home/HomeServicesSection";
 import HomeSubsidiesSection from "../componnets/home/HomeSubsidiesSection";
 import HomeBenefitsSection from "../componnets/home/HomeBenefitsSection";
@@ -19,6 +20,7 @@ export default function Home() {
             />
             <HomeHeroSection />
             <HomeTrustSection />
+            <HomeLogosSection />
             <HomeServicesSection />
             <HomeSubsidiesSection />
             <HomeBenefitsSection />
