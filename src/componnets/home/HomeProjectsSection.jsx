@@ -132,10 +132,7 @@ export default function HomeProjectsSection() {
                                                 <p className="font-black text-slate-800 text-base">{p.capacity}</p>
                                             </div>
                                             <div className="space-y-1 border-l border-slate-200 pl-4 group-hover:border-orange-200 transition-colors">
-                                                <div className="flex items-center gap-1.5 text-slate-400">
-                                                    <Leaf size={12} className="text-emerald-500" />
-                                                    <p className="text-[9px] font-black uppercase tracking-widest">Saved Yearly</p>
-                                                </div>
+
                                                 <p className="font-black text-emerald-600 text-base">{p.saved}</p>
                                             </div>
                                         </div>

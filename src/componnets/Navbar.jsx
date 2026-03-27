@@ -47,7 +47,7 @@ export default function Navbar() {
                     {/* --- LOGO --- */}
                     <NavLink to="/" className="flex items-center gap-3 group relative z-[110]">
                         <div className="relative">
-                            <div className="w-13 h-12 bg-orange-50 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:rotate-12 transition-transform duration-500">
+                            <div className="w-13 h-12 bg-orange-100 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:rotate-12 transition-transform duration-500">
                                 <img src="/logo.png" className="w-full h-full" alt="logo" />
                             </div>
                             <div className="absolute inset-0 bg-orange-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity" />
