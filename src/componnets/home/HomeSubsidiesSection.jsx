@@ -1,9 +1,205 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
     Banknote, Leaf, Building2, Users, Factory,
-    CircleCheck, CheckCircle2, Info, ArrowRight, Sparkles
+    CircleCheck, CheckCircle2, Info, ArrowRight, Sparkles,
+    Timer, AlertTriangle
 } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// ── Countdown to March 31, 2027 ──────────────────────────────────────────────
+const DEADLINE = new Date("2027-03-31T23:59:59+05:30");
+
+function useCountdown() {
+    const calc = () => {
+        const diff = DEADLINE - Date.now();
+        if (diff <= 0) return { days: 0, hours: 0, mins: 0, secs: 0 };
+        const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+        return { days, hours, mins, secs };
+    };
+    const [time, setTime] = useState(calc);
+    useEffect(() => {
+        const id = setInterval(() => setTime(calc()), 1000);
+        return () => clearInterval(id);
+    }, []);
+    return time;
+}
+
+function CountBox({ value, label, accent = false }) {
+    return (
+        <div className="flex flex-col items-center gap-1.5 min-w-0">
+            {/* Digit card */}
+            <div
+                className={`
+                    relative flex items-center justify-center
+                    w-[68px] h-[68px] xs:w-20 xs:h-20 sm:w-24 sm:h-24
+                    rounded-2xl sm:rounded-3xl
+                    bg-white/[0.07] backdrop-blur-md
+                    border border-white/15
+                    shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]
+                    overflow-hidden
+                `}
+            >
+                {/* Inner top highlight */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                {/* Subtle glow ring for accent (seconds) */}
+                {accent && (
+                    <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-orange-500/40 shadow-[0_0_20px_rgba(249,115,22,0.25)]" />
+                )}
+                <span className="relative text-[28px] xs:text-3xl sm:text-4xl font-black text-white tabular-nums tracking-tighter leading-none">
+                    {String(value).padStart(2, "0")}
+                </span>
+                {/* Flip line */}
+                <div className="absolute inset-x-2 top-1/2 -translate-y-px h-px bg-black/30" />
+            </div>
+            <span className="text-[9px] xs:text-[10px] font-black uppercase tracking-[0.18em] text-orange-200/80">
+                {label}
+            </span>
+        </div>
+    );
+}
+
+const TRUST_CHIPS = [
+    "Subsidy direct to bank",
+    "No middleman — 100% Govt.",
+    "VR SolarTech handles paperwork",
+    "Free eligibility check",
+];
+
+function SuryaGharCountdown() {
+    const { days, hours, mins, secs } = useCountdown();
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mb-14"
+        >
+            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+
+                {/* ── Top gradient stripe ── */}
+                <div className="bg-gradient-to-r from-orange-600 via-orange-500 to-amber-400 px-5 py-3 sm:px-8 sm:py-4 flex items-center justify-between gap-3 flex-wrap">
+                    <div className="flex items-center gap-2.5">
+                        {/* Live pulse dot */}
+                        <span className="relative flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
+                        </span>
+                        <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-white/90">
+                            ⚡ Limited Period — Scheme Ends March 31, 2027
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-3 py-1">
+                        <AlertTriangle size={10} className="text-white" />
+                        <span className="text-[9px] font-black uppercase tracking-widest text-white">Act Now</span>
+                    </div>
+                </div>
+
+                {/* ── Main dark body ── */}
+                <div className="relative bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]">
+                    {/* Background glow orbs */}
+                    <div className="absolute -top-24 -left-24 w-80 h-80 bg-orange-500/15 rounded-full blur-[120px] pointer-events-none" />
+                    <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-amber-400/10 rounded-full blur-[120px] pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-orange-600/5 rounded-full blur-[80px] pointer-events-none" />
+
+                    <div className="relative z-10 px-5 pt-7 pb-6 sm:px-10 sm:pt-9 sm:pb-8">
+
+                        {/* ── Scheme title row ── */}
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 mb-8">
+                            <div className="flex-1 min-w-0">
+                                {/* Icon + title */}
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center shadow-lg shadow-orange-900/30 flex-shrink-0">
+                                        <span className="text-lg sm:text-xl">🌞</span>
+                                    </div>
+                                    <div>
+                                        <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-orange-400 mb-0.5">
+                                            Government of India — Flagship Scheme
+                                        </p>
+                                        <h3 className="text-white text-base sm:text-xl font-black leading-tight tracking-tight">
+                                            PM Surya Ghar Muft Bijli Yojana
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-md mb-5">
+                                    Apply before the deadline and receive up to{" "}
+                                    <span className="text-emerald-400 font-black">₹78,000 subsidy</span> — credited
+                                    directly to your bank account. Zero paperwork hassle with VR SolarTech.
+                                </p>
+
+                                {/* Subsidy pills */}
+                                <div className="flex flex-wrap gap-2 mb-5">
+                                    {[
+                                        { kw: "1 kW", amt: "₹30,000" },
+                                        { kw: "2 kW", amt: "₹60,000" },
+                                        { kw: "3 kW+", amt: "₹78,000" },
+                                    ].map((s) => (
+                                        <div
+                                            key={s.kw}
+                                            className="flex items-center gap-1.5 bg-white/[0.06] border border-white/10 rounded-xl px-3 py-1.5 backdrop-blur-sm"
+                                        >
+                                            <span className="text-[10px] font-bold text-slate-400">{s.kw}</span>
+                                            <span className="text-[10px] font-black text-emerald-400">{s.amt}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* CTA button */}
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-xs font-black uppercase tracking-widest px-6 py-3.5 rounded-xl sm:rounded-2xl shadow-xl shadow-orange-900/40 transition-all duration-300 hover:scale-[1.04] hover:shadow-orange-900/50 active:scale-95 w-full sm:w-auto justify-center sm:justify-start"
+                                >
+                                    <Timer size={14} />
+                                    Apply Before Deadline
+                                    <ArrowRight size={13} className="ml-0.5" />
+                                </Link>
+                            </div>
+
+                            {/* ── Countdown block ── */}
+                            <div className="flex flex-col items-center sm:items-end gap-3 flex-shrink-0">
+                                <p className="text-[9px] font-black uppercase tracking-[0.22em] text-slate-500 text-center sm:text-right">
+                                    Time Remaining
+                                </p>
+                                <div className="flex items-end gap-1.5 sm:gap-2">
+                                    <CountBox value={days}  label="Days"  />
+                                    <span className="text-orange-400/80 font-black text-2xl pb-8 leading-none">:</span>
+                                    <CountBox value={hours} label="Hours" />
+                                    <span className="text-orange-400/80 font-black text-2xl pb-8 leading-none">:</span>
+                                    <CountBox value={mins}  label="Mins"  />
+                                    <span className="text-orange-400/80 font-black text-2xl pb-8 leading-none">:</span>
+                                    <CountBox value={secs}  label="Secs" accent />
+                                </div>
+                                <p className="text-[9px] font-bold text-slate-600 text-center sm:text-right">
+                                    Deadline: 31 March 2027
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* ── Trust chips row (horizontal scroll on mobile) ── */}
+                        <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar pt-5 border-t border-white/[0.07]">
+                            {TRUST_CHIPS.map((chip) => (
+                                <div
+                                    key={chip}
+                                    className="flex-shrink-0 flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1.5"
+                                >
+                                    <CheckCircle2 size={11} className="text-emerald-400 flex-shrink-0" />
+                                    <span className="text-[10px] font-bold text-emerald-300 whitespace-nowrap">{chip}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
 
 const subsidiesData = {
     schemes: [
@@ -132,6 +328,9 @@ export default function HomeSubsidiesSection() {
                         VR SolarTech provides **end-to-end documentation support** for all schemes.
                     </motion.p>
                 </div>
+
+                {/* --- SURYA GHAR COUNTDOWN BANNER --- */}
+                <SuryaGharCountdown />
 
                 {/* --- SCHEMES GRID --- */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
