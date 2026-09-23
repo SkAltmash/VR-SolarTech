@@ -141,6 +141,7 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-all"
                         >
+                            
                             <span className="text-slate-600 font-medium italic">Architected by</span>
                             <span className="bg-slate-800 px-3 py-1 rounded-full group-hover:bg-orange-500 transition-colors">
                                 Zaref Technology
